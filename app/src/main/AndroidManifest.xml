@@ -23,6 +23,7 @@
         <activity android:name=".elammojodi" />
         <activity android:name=".charge" />
         <activity android:name=".pay" />
+        <activity android:name=".NewsActivity" />
     </application>
 
 </manifest>
