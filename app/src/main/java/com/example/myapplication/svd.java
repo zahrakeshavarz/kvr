@@ -16,7 +16,7 @@ public class svd {
     private List<News> getSvd(User user) {
         double[] doubles = calculate(getTable(), getUserRating(user), getUserRating(user)[0].length);
         //todo: list haro pass bede besh
-        List<NewsModel> news = News.listAll(News.class);
+//        List<NewsModel> news = News.listAll(News.class);
         List<Suggestion> suggestions = new ArrayList<>();
         for (int i = 0; i < doubles.length; i++) {
             Suggestion suggestion = new Suggestion(i, doubles[i], news.get(i));
@@ -28,7 +28,7 @@ public class svd {
                 return Double.compare(o1.rate, o2.rate);
             }
         });
-        List<News> newsList = new ArrayList<>();
+        List<NewsModel> newsList = new ArrayList<>();
         for (Suggestion s :
                 suggestions) {
             newsList.add(s.news);
@@ -59,7 +59,7 @@ public class svd {
         return doubles;
     }
 
-    private double findUserRate(User user, News news, List<Rating> ratings, double defaultValue) {
+    private double findUserRate(User user, NewsModel news, List<Rating> ratings, double defaultValue) {
         Rating rate = null;
         for (Rating rating :
                 ratings) {
