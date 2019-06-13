@@ -1,67 +1,91 @@
 package com.example.myapplication;
 
+import android.media.Rating;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 import Jama.Matrix;
 import Jama.SingularValueDecomposition;
 
 public class svd {
-    private void Do() {
-        // create M-by-N matrix that doesn't have full rank
-        int M = 8, N = 5;
-        //Matrix B = Matrix.random(5, 3);
-        //Matrix A = Matrix.random(M, N).times(B).times(B.transpose());
-        double[][] vals = {{2, 0, 2, 4, 5, 0}, {5, 0, 4, 0, 0, 1}, {0, 0, 5, 0, 2, 0}, {0, 1, 0, 5, 0, 4}, {0, 0, 4, 0, 0, 2}, {4, 5, 0, 1, 0, 0}};
+    private List<News> getSvd(User user) {
+        double[] doubles = calculate(getTable(), getUserRating(user), getUserRating(user)[0].length);
+        //todo: list haro pass bede besh
+        List<NewsModel> news = News.listAll(News.class);
+        List<Suggestion> suggestions = new ArrayList<>();
+        for (int i = 0; i < doubles.length; i++) {
+            Suggestion suggestion = new Suggestion(i, doubles[i], news.get(i));
+            suggestions.add(suggestion);
+        }
+        Collections.sort(suggestions, new Comparator<Suggestion>() {
+            @Override
+            public int compare(Suggestion o1, Suggestion o2) {
+                return Double.compare(o1.rate, o2.rate);
+            }
+        });
+        List<News> newsList = new ArrayList<>();
+        for (Suggestion s :
+                suggestions) {
+            newsList.add(s.news);
+        }
+        return newsList;
+    }
+
+    private double[][] getUserRating(User user) {
+        double[][] doubles = new double[1][];
+        List<Rating> ratings = Rating.listAll(Rating.class);
+        List<News> news = News.listAll(News.class);
+        for (int i = 0; i < news.size(); i++) {
+            doubles[0][i] = findUserRate(user, news.get(i), ratings, 2.5);
+        }
+        return doubles;
+    }
+
+    private double[][] getTable() {
+        List<User> users = User.listAll(User.class);
+        List<Rating> ratings = Rating.listAll(Rating.class);
+        List<News> news = News.listAll(News.class);
+        double[][] doubles = new double[users.size()][];
+        for (int j = 0; j < users.size(); j++) {
+            for (int i = 0; i < news.size(); i++) {
+                doubles[j][i] = findUserRate(users.get(j), news.get(i), ratings, 0);
+            }
+        }
+        return doubles;
+    }
+
+    private double findUserRate(User user, News news, List<Rating> ratings, double defaultValue) {
+        Rating rate = null;
+        for (Rating rating :
+                ratings) {
+            if (rating.getUser().equals(user) && rating.getNews().equals(news)) {
+                rate = rating;
+            }
+        }
+        if (rate != null)
+            return rate.getRate();
+        else
+            return defaultValue;
+    }
+
+    private double[] calculate(double[][] vals, double[][] rate, int cut) {
         Matrix A = new Matrix(vals);
-        System.out.print("A = ");
-        A.print(9, 6);
-        // compute the singular value decomposition
-        Log.e("", "A = U S V^T");
         SingularValueDecomposition s = A.svd();
         System.out.print("U = ");
-        Matrix U = s.getU().getMatrix(0, 4, 0, 4);
-        U.print(9, 6);
+        Matrix U = s.getU().getMatrix(0, cut - 1, 0, cut - 1);
         Matrix ut = U.transpose();
-        Log.e("", "*******************************");
-        ut.print(9, 6);
         Matrix r = ut.times(U);
-        Log.e("", "*******************************");
-        r.print(9, 6);
-        Log.e("", "*******************************");
-        double[][] doubles = {{2.5, 3, 1, 4, 2.5}};
-        Matrix n = new Matrix(doubles);
+        Matrix n = new Matrix(rate);
         Matrix matrix = r.times(n.transpose()).transpose();
+        Log.e("", "*******************************");
         matrix.print(9, 6);
-        double[][] result = matrix.getArray();
-        double[] row = result[0];
-        HashMap<Integer, Double> hashMap = new HashMap<>();
-        for (int i = 0; i < row.length; i++) {
-            hashMap.put(i, row[i]);
-        }
-//        System.out.print("Sigma = ");
-//        Matrix S = s.getS();
-//        S.print(9, 6);
-//        System.out.print("V = ");
-//        Matrix V = s.getV();
-//        V.print(9, 6);
-        Log.e("", "rank = " + s.rank());
-        Log.e("", "condition number = " + s.cond());
-        Log.e("", "2-norm = " + s.norm2());
-
-        // print out singular values
-        System.out.print("singular values = ");
-        Matrix svalues = new Matrix(s.getSingularValues(), 1);
-        svalues.print(9, 6);
-
-        // S.set(1, 1, 0);
-        //S.set(3, 3, 0);
-        // S.set(4, 4, 0);
-        System.out.print("Sigma = ");
-        //S.print(9, 6);
-        //Matrix B = U.times(S.times(V.transpose()));
-        System.out.print("B = ");
-        //B.print(9, 6);
+        Log.e("", "*******************************");
+        double[][] temp = matrix.getArray();
+        return temp[0];
     }
 }
