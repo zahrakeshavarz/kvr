@@ -26,6 +26,7 @@
         <activity android:name=".charge" />
         <activity android:name=".pay" />
         <activity android:name=".NewsActivity" />
+        <activity android:name=".MapActivity" />
     </application>
 
 </manifest>
