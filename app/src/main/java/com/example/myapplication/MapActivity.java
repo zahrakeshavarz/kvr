@@ -17,6 +17,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.Random;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -50,7 +53,26 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
         }
+
+        /**
+         * test this
+         */
         //todo: add a random marker on map
+        addMarker();
+    }
+
+    private void addMarker() {
+        Random rand = new Random();
+        int n = rand.nextInt(99);
+        String s = String.format("35.%s", String.valueOf(n));
+        double v = Double.parseDouble(s);
+        n = rand.nextInt(99);
+        s = String.format("35.%s", String.valueOf(n));
+        double v1 = Double.parseDouble(s);
+        LatLng latLng = new LatLng(v, v1);
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        mMap.addMarker(markerOptions);
     }
 
     @Override
