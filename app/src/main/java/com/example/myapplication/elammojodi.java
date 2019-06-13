@@ -13,6 +13,6 @@ public class elammojodi extends AppCompatActivity {
         setContentView(R.layout.mjdi);
         credit= getIntent().getStringExtra("credit");
         TextView textView=findViewById(R.id.textView7);
-        textView.setText(credit);
+//        textView.setText(credit);
     }
 }
