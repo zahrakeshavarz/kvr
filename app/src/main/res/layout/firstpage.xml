@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/ghabz"
+            android:id="@+id/ghabzz"
             android:text="پرداخت قبوض"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

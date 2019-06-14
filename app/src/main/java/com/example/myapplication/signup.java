@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +34,8 @@ public class signup extends AppCompatActivity {
             contentValues.put("lastName",user.getLastname());
             contentValues.put("userName",user.getUsername());
             contentValues.put("password",user.getPassword());
-                    databaseAccess.getDb().insert("user",null,contentValues);
+            SQLiteDatabase db  = databaseAccess.getDb();
+                  db.insert("user",null,contentValues);
             Intent intent=new Intent(this,firstPage.class);
             startActivity(intent);
         });

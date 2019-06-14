@@ -18,7 +18,7 @@ public class charge extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.charge);
         phonenum=findViewById(R.id.phonenum);
-        cost=findViewById(R.id.mablagh);
+        cost=findViewById(R.id.mablagh1);
         submit=findViewById(R.id.submitbtn);
         submit.setOnClickListener(v->{
             phone=phonenum.getText().toString();

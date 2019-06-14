@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class databaseAccess extends SQLiteAssetHelper {
-    private static String DATABASE_NAME = "dowlatt.db";
+    private static String DATABASE_NAME = "dowlat.db";
     private static int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
 

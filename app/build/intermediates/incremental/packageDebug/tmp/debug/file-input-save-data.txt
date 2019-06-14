@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jun 12 13:18:06 IRDT 2019
+#Fri Jun 14 16:54:00 IRDT 2019
 4.path=classes.dex
 8.set=DEX
 6.path=classes.dex
@@ -10,10 +10,10 @@
 8.path=classes.dex
 3.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
 4.set=DEX
-5.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\20
-7.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
+5.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+7.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
 11.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
-9.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+9.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\18
 1.baseType=DIRECTORY
 11.set=DEX
 0.set=DEX
@@ -26,25 +26,25 @@
 7.baseType=DIRECTORY
 3.path=classes.dex
 10.set=DEX
-5.path=classes.dex
+5.path=databases/dowlat.db
 0.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\19
 7.path=classes.dex
 11.path=classes.dex
-9.path=databases/dowlatt.db
+9.path=classes.dex
 6.set=DEX
 2.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\21
 11.baseType=DIRECTORY
 4.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
 3.baseType=DIRECTORY
-6.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
+6.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\20
 10.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
-8.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\18
+8.base=C\:\\Users\\Asus\\AndroidStudioProjects\\MyApplication4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
 2.set=DEX
 8.baseType=DIRECTORY
-9.set=ASSET
+9.set=DEX
 count=12
 4.baseType=DIRECTORY
-5.set=DEX
+5.set=ASSET
 9.baseType=DIRECTORY
 0.path=classes.dex
 1.set=DEX

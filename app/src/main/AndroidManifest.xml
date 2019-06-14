@@ -27,6 +27,8 @@
         <activity android:name=".pay" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".MapActivity" />
+        <activity android:name=".kartbekartAcitivy" />
+        <activity android:name=".ghabz" />
     </application>
 
 </manifest>

@@ -20,7 +20,7 @@ public class firstPage extends AppCompatActivity {
         kartbekart=findViewById(R.id.kartbekart);
         mojodi=findViewById(R.id.mojodi);
         charge=findViewById(R.id.charge);
-        ghabz=findViewById(R.id.ghabz);
+        ghabz=findViewById(R.id.ghabzz);
         gozaresh=findViewById(R.id.gozaresh);
         news=findViewById(R.id.news);
         mojodi.setOnClickListener(v->{
@@ -30,6 +30,20 @@ public class firstPage extends AppCompatActivity {
         charge.setOnClickListener(v->{
             Intent intent=new Intent(this,charge.class);
             startActivity(intent);
+        });
+        gozaresh.setOnClickListener(v->{
+            Intent intent=new Intent(this, MapActivity.class);
+            startActivity(intent);
+        });
+        kartbekart.setOnClickListener(v->{
+            Intent intent=new Intent(this,kartbekartAcitivy.class);
+            startActivity(intent);
+        });
+        ghabz.setOnClickListener(v->{
+
+        });
+        news.setOnClickListener(v -> {
+
         });
 
     }
